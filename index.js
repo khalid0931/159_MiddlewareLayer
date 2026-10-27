@@ -46,3 +46,11 @@ function errorResponse(res, message, status, details = null){
         status: false, message, data: null, error: details
     })
 }
+
+// joi validation schema
+const biodataSchema = joi.object({
+    id: joi.number().integer().positive(),
+    nama: joi.string().min(3).max(50).required(),
+    nim: joi.string().trim().min(5).max(20).required(),
+    kelas: joi.string().trim().min(1).max(20).required(),
+})
